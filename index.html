@@ -1,630 +1,298 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhamad Daffa Ramadhan - Cybernetic Web Developer</title>
+    <title>Portofolio Muhamad Daffa Ramadhan - Dark Mode</title>
+    <!-- Memuat Tailwind CSS dan Font Awesome (untuk ikon) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@300;400;700;900&family=Exo+2:wght@300;400;600;700&family=Audiowide&display=swap');
-        
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
         body {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Exo 2', sans-serif;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
-                linear-gradient(135deg, #000000 0%, #1a0033 30%, #000011 70%, #000000 100%);
-            color: #ffffff;
-            overflow-x: hidden;
-            min-height: 100%;
+            font-family: 'Inter', sans-serif;
+            /* WARNA LATAR BELAKANG DENGAN CORAK GEOMETRIS HALUS */
+            /* Menggunakan warna dasar #1a1a2e, dengan corak yang sedikit lebih gelap #131321 */
+            background-color: #1a1a2e;
+            background-image: repeating-linear-gradient(45deg, #131321 25%, transparent 25%, transparent 75%, #131321 75%, #131321), repeating-linear-gradient(45deg, #131321 25%, #1a1a2e 25%, #1a1a2e 75%, #131321 75%, #131321);
+            background-position: 0 0, 10px 10px;
+            background-size: 20px 20px;
+            color: #e0e0e0; /* Light text */
         }
-
-        html {
-            height: 100%;
-        }
-
-        /* Neo-Futuristic Grid Background */
-        .cyber-grid {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: 
-                linear-gradient(rgba(0, 255, 255, 0.08) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255, 0, 255, 0.08) 1px, transparent 1px),
-                radial-gradient(circle at 25% 25%, rgba(0, 255, 255, 0.1) 2px, transparent 2px),
-                radial-gradient(circle at 75% 75%, rgba(255, 0, 255, 0.1) 2px, transparent 2px);
-            background-size: 60px 60px, 60px 60px, 120px 120px, 120px 120px;
-            z-index: -1;
-            animation: gridFloat 8s ease-in-out infinite;
-        }
-
-        @keyframes gridFloat {
-            0%, 100% { 
-                opacity: 0.4; 
-                transform: translateY(0px);
-            }
-            50% { 
-                opacity: 0.2; 
-                transform: translateY(-10px);
-            }
-        }
-
-        /* Neo-Futuristic Glitch Effect */
-        .glitch {
-            position: relative;
-            color: #ffffff;
-            font-size: 3rem;
-            font-weight: 700;
-            font-family: 'Audiowide', cursive;
-            text-transform: uppercase;
-            animation: neoGlitch 3s infinite;
-            text-shadow: 
-                0 0 5px #00ffff,
-                0 0 10px #00ffff,
-                0 0 15px #00ffff,
-                0 0 20px #ff00ff,
-                2px 2px 0 #ff00ff,
-                -2px -2px 0 #00ffff;
-        }
-
-        .glitch::before,
-        .glitch::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        .glitch::before {
-            animation: glitch-1 0.5s infinite;
-            color: #ff00ff;
-            z-index: -1;
-        }
-
-        .glitch::after {
-            animation: glitch-2 0.5s infinite;
-            color: #ffff00;
-            z-index: -2;
-        }
-
-        @keyframes neoGlitch {
-            0%, 100% { 
-                transform: translate(0);
-                text-shadow: 
-                    0 0 5px #00ffff,
-                    0 0 10px #00ffff,
-                    0 0 15px #00ffff,
-                    0 0 20px #ff00ff,
-                    2px 2px 0 #ff00ff,
-                    -2px -2px 0 #00ffff;
-            }
-            25% { 
-                transform: translate(-1px, 1px);
-                text-shadow: 
-                    0 0 5px #ff00ff,
-                    0 0 10px #ff00ff,
-                    0 0 15px #ff00ff,
-                    0 0 20px #00ffff,
-                    1px 1px 0 #00ffff,
-                    -1px -1px 0 #ff00ff;
-            }
-            50% { 
-                transform: translate(1px, -1px);
-                text-shadow: 
-                    0 0 5px #00ff00,
-                    0 0 10px #00ff00,
-                    0 0 15px #00ff00,
-                    0 0 20px #ff00ff,
-                    -1px 1px 0 #ff00ff,
-                    1px -1px 0 #00ff00;
-            }
-            75% { 
-                transform: translate(-1px, -1px);
-                text-shadow: 
-                    0 0 5px #ffff00,
-                    0 0 10px #ffff00,
-                    0 0 15px #ffff00,
-                    0 0 20px #00ffff,
-                    1px -1px 0 #00ffff,
-                    -1px 1px 0 #ffff00;
-            }
-        }
-
-        @keyframes glitch-1 {
-            0%, 100% { transform: translate(0); }
-            10% { transform: translate(-1px, -1px); }
-            20% { transform: translate(1px, 1px); }
-        }
-
-        @keyframes glitch-2 {
-            0%, 100% { transform: translate(0); }
-            30% { transform: translate(1px, -1px); }
-            60% { transform: translate(-1px, 1px); }
-        }
-
-        /* Container */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        /* Header */
-        .header {
-            text-align: center;
-            padding: 4rem 0;
-            border-bottom: 2px solid #00ffff;
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 2px;
-            background: linear-gradient(90deg, transparent, #ff00ff, transparent);
-            animation: scanline 2s linear infinite;
-        }
-
-        @keyframes scanline {
-            0% { transform: translateX(-200px); }
-            100% { transform: translateX(200px); }
-        }
-
-        .name {
-            font-family: 'Audiowide', cursive;
-            margin: 0;
-            text-shadow: 
-                0 0 10px #00ffff,
-                0 0 20px #00ffff,
-                0 0 30px #ff00ff;
-        }
-
-        .role {
-            font-size: 1.5rem;
-            color: #ffffff;
-            margin: 1rem 0;
-            text-transform: uppercase;
-            letter-spacing: 4px;
-            font-family: 'Orbitron', monospace;
-            font-weight: 300;
-            text-shadow: 
-                0 0 5px #ff00ff,
-                0 0 10px #ff00ff,
-                0 0 15px #ff00ff;
-        }
-
-        .tagline {
-            color: #000000;
-            font-size: 1.2rem;
-            margin-top: 1rem;
-            font-weight: 300;
-            text-shadow: 
-                0 0 5px #ffffff,
-                0 0 10px #ffffff;
-        }
-
-        /* Neo-Futuristic Sections */
-        .section {
-            margin: 3rem 0;
-            padding: 2.5rem;
-            background: 
-                linear-gradient(135deg, rgba(0, 255, 255, 0.03) 0%, rgba(255, 0, 255, 0.03) 100%),
-                rgba(0, 0, 0, 0.4);
-            border: 1px solid rgba(0, 255, 255, 0.3);
-            border-radius: 15px;
-            position: relative;
-            backdrop-filter: blur(15px);
-            box-shadow: 
-                0 8px 32px rgba(0, 255, 255, 0.1),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
-        }
-
-        .section::before {
-            content: '';
-            position: absolute;
-            top: -2px;
-            left: -2px;
-            right: -2px;
-            bottom: -2px;
-            background: linear-gradient(45deg, #00ffff, #ff00ff, #00ff00, #ffff00, #00ffff);
-            border-radius: 15px;
-            z-index: -1;
-            animation: neoGlow 4s linear infinite;
-            opacity: 0.6;
-        }
-
-        @keyframes neoGlow {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-
         .section-title {
-            font-family: 'Orbitron', monospace;
-            font-size: 2rem;
-            color: #ffffff;
-            margin-bottom: 1.5rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            text-shadow: 
-                0 0 5px #00ffff,
-                0 0 10px #00ffff,
-                0 0 15px #ff00ff;
-        }
-
-        /* Skills Grid */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .skill-card {
-            background: 
-                linear-gradient(135deg, rgba(0, 255, 255, 0.05) 0%, rgba(255, 0, 255, 0.05) 100%),
-                rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(0, 255, 255, 0.4);
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            transition: all 0.4s ease;
             position: relative;
-            backdrop-filter: blur(10px);
-        }
-
-        .skill-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: linear-gradient(135deg, rgba(0, 255, 255, 0.1), rgba(255, 0, 255, 0.1));
-            border-radius: 12px;
-            opacity: 0;
-            transition: opacity 0.4s ease;
-            z-index: -1;
-        }
-
-        .skill-card:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 
-                0 15px 40px rgba(0, 255, 255, 0.2),
-                0 5px 15px rgba(255, 0, 255, 0.1);
-            border-color: #00ffff;
-        }
-
-        .skill-card:hover::before {
-            opacity: 1;
-        }
-
-        .skill-name {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #000000;
-            margin-bottom: 0.8rem;
-            font-family: 'Orbitron', monospace;
-            text-shadow: 
-                0 0 5px #ffffff,
-                0 0 10px #ffffff;
-        }
-
-        /* Experience Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, #00ffff, #ff00ff, #00ff00, #ffff00);
-            border-radius: 2px;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 2.5rem;
-            padding-left: 2.5rem;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -1.75rem;
-            top: 0.5rem;
-            width: 1.5rem;
-            height: 1.5rem;
-            background: radial-gradient(circle, #ff00ff, #00ffff);
-            border-radius: 50%;
-            box-shadow: 
-                0 0 15px #ff00ff,
-                0 0 25px rgba(255, 0, 255, 0.3);
-            animation: pulse 2s infinite;
-        }
-
-        .timeline-title {
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #000000;
-            margin-bottom: 0.5rem;
-            font-family: 'Orbitron', monospace;
-            text-shadow: 
-                0 0 5px #ffffff,
-                0 0 10px #ffffff;
-        }
-
-        .timeline-company {
-            color: #ff00ff;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-            text-shadow: 
-                0 0 5px #ff00ff;
-        }
-
-        .timeline-date {
-            color: #ffff00;
-            font-size: 1rem;
-            margin-bottom: 0.8rem;
-            font-weight: 500;
-            text-shadow: 
-                0 0 5px #ffff00;
-        }
-
-
-
-        /* Contact Section */
-        .contact-info {
-            text-align: center;
-            font-size: 1.2rem;
-        }
-
-        .contact-info p {
-            margin: 1rem 0;
-            color: #000000;
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .glitch {
-                font-size: 2rem;
-            }
-            
-            .container {
-                padding: 1rem;
-            }
-            
-            .section {
-                padding: 1.5rem;
-            }
-            
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Neo-Futuristic Neon Text */
-        .neon-text {
-            color: #000000;
-            text-shadow: 
-                0 0 5px #ffffff,
-                0 0 10px #ffffff,
-                0 0 15px #ffffff,
-                0 0 20px #ffffff,
-                0 0 35px #ffffff;
-            animation: neonFlicker 2s infinite alternate;
-        }
-
-        @keyframes neonFlicker {
-            0%, 100% {
-                text-shadow: 
-                    0 0 5px #ffffff,
-                    0 0 10px #ffffff,
-                    0 0 15px #ffffff,
-                    0 0 20px #ffffff,
-                    0 0 35px #ffffff;
-            }
-            50% {
-                text-shadow: 
-                    0 0 2px #ffffff,
-                    0 0 5px #ffffff,
-                    0 0 8px #ffffff,
-                    0 0 12px #ffffff,
-                    0 0 18px #ffffff;
-            }
-        }
-
-        /* AI Badge */
-        .ai-badge {
             display: inline-block;
-            background: linear-gradient(45deg, #ff00ff, #00ffff, #00ff00);
-            background-size: 200% 200%;
-            color: #000000;
-            padding: 0.4rem 1rem;
-            border-radius: 25px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            margin: 0 0.5rem;
-            animation: gradientShift 3s ease infinite, aiPulse 2s infinite;
-            box-shadow: 
-                0 0 10px rgba(0, 255, 255, 0.5),
-                0 0 20px rgba(255, 0, 255, 0.3);
+            padding-bottom: 8px;
         }
-
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50%;
+            height: 3px;
+            background-color: #ff5722; /* Accent color (Orange/Coral) */
+            border-radius: 9999px;
         }
-
-        @keyframes aiPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -2px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease;
+        }
+        .card-shadow:hover {
+            transform: translateY(-5px);
+        }
+        /* Custom scrollbar for better aesthetic */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: #ff5722; /* Scrollbar matching accent color */
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #2c2c54;
         }
     </style>
 </head>
-<body>
-    <div class="cyber-grid"></div>
-    
-    <div class="container">
-        <!-- Header Section -->
-        <header class="header">
-            <h1 class="glitch name" data-text="Muhamad Daffa Ramadhan">Muhamad Daffa Ramadhan</h1>
-            <p class="role">[DEV-CYBERNETIC] Web Developer</p>
-            <p class="tagline neon-text">AI-Augmented Development Specialist</p>
-        </header>
+<body class="text-gray-200">
 
-        <!-- About Section -->
-        <section class="section">
-            <h2 class="section-title">About Me</h2>
-            <p style="font-size: 1.2rem; line-height: 1.8;">
-                Halo, nama saya Daffa. Saya adalah seorang <strong class="neon-text">[DEV-CYBERNETIC]</strong> yang mengombinasikan keahlian dalam <strong>Python, HTML, dan CSS</strong> dengan kemampuan memanfaatkan <span class="ai-badge">kecerdasan buatan (AI)</span> untuk membangun solusi web yang efisien dan modern.
-            </p>
-            <p style="font-size: 1.1rem; line-height: 1.6; margin-top: 1.5rem;">
-                Sebagai lulusan baru (new graduate), saya mampu belajar banyak hal baru, beradaptasi dengan baik, dan bertanggung jawab atas pekerjaan. Saya mahir memberikan layanan maksimal dan memiliki hobi fotografi yang mengasah mata saya untuk detail visual.
-            </p>
-        </section>
+    <!-- HEADER NAVIGATION (Dark and professional) -->
+    <header class="sticky top-0 z-50 bg-[#1a1a2e] shadow-lg border-b border-[#2c2c54]">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="text-2xl font-bold tracking-wider text-white">
+                Daffa<span class="text-[#ff5722]">.</span>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#about" class="text-gray-300 hover:text-[#ff5722] font-medium transition duration-150">Tentang</a>
+                <a href="#experience" class="text-gray-300 hover:text-[#ff5722] font-medium transition duration-150">Pengalaman</a>
+                <a href="#work" class="text-gray-300 hover:text-[#ff5722] font-medium transition duration-150">Proyek</a>
+            </div>
+        </nav>
+    </header>
 
-        <!-- Skills Section -->
-        <section class="section">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-card">
-                    <div class="skill-name">Python</div>
-                    <p>Backend Development & Flask Framework</p>
+    <!-- HERO SECTION -->
+    <section id="about" class="pt-20 pb-24 bg-transparent border-b border-[#2c2c54]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Menghilangkan flex-col/lg:flex-row dan memusatkan konten -->
+            <div class="flex flex-col items-center justify-center">
+
+                <!-- Text Content (Diperlebar menjadi penuh) -->
+                <div class="w-full text-center mb-10">
+                    <p class="text-lg text-gray-400 mb-2">MUHAMAD DAFFA RAMADHAN</p>
+                    <h1 class="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-white leading-tight">
+                        HAY! I'M DAFFA
+                        <span class="text-[#ff5722] block mt-2">[DEV-CYBERNETIC] WEB DEVELOPER</span>
+                    </h1>
+
+                    <p class="mt-6 text-lg leading-relaxed text-gray-400 max-w-4xl mx-auto">
+                        Halo, nama saya Daffa. Saya berusia 19 tahun, bersemangat dalam **Teknik Informatika** dan memiliki keahlian di bidang **HTML, CSS, dan Python**. Saya mampu **belajar banyak hal baru**, beradaptasi, dan **bertanggung jawab** penuh terhadap hasil kerja.
+                    </p>
+
+                    <div class="mt-10 flex justify-center space-x-4">
+                        <button onclick="copyEmail()" class="bg-[#ff5722] hover:bg-orange-700 text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-xl shadow-orange-900/50">
+                            GET IN TOUCH
+                        </button>
+                        <a href="Portofolio daffa.pdf" download class="bg-[#2c2c54] hover:bg-[#3d3d63] text-gray-300 font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105 shadow-md flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                            Download PDF
+                        </a>
+                    </div>
+                    
+                    <!-- Tautan Media Sosial di Hero Section -->
+                    <div class="mt-8 flex justify-center space-x-6 text-2xl">
+                        <!-- Tautan WhatsApp (Menggunakan format WA link) -->
+                        <a href="https://wa.me/6285893957454" target="_blank" rel="noopener noreferrer" 
+                           class="text-gray-400 hover:text-green-500 transition duration-300 transform hover:scale-110" aria-label="WhatsApp">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                        <!-- Tautan Instagram -->
+                        <a href="https://www.instagram.com/fnxses" target="_blank" rel="noopener noreferrer" 
+                           class="text-gray-400 hover:text-[#ff5722] transition duration-300 transform hover:scale-110" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <!-- Anda bisa menambahkan tautan lain di sini, misalnya: -->
+                        <!-- <a href="https://github.com/YourUsername" target="_blank" class="text-gray-400 hover:text-[#ff5722] transition duration-300 transform hover:scale-110" aria-label="GitHub"><i class="fab fa-github"></i></a> -->
+                    </div>
+
                 </div>
-                <div class="skill-card">
-                    <div class="skill-name">HTML5</div>
-                    <p>Semantic Markup & Accessibility</p>
+
+                <!-- Blok Profile Image telah dihapus di sini -->
+            </div>
+        </div>
+    </section>
+
+    <!-- EDUCATION & EXPERIENCE SECTION -->
+    <section id="experience" class="py-20 bg-transparent">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-3xl sm:text-4xl font-extrabold text-white mx-auto">Riwayat Pendidikan & Pengalaman</h2>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+                <!-- EDUCATION CARD -->
+                <div class="card-shadow p-6 bg-[#2c2c54] border border-[#ff5722]/50 rounded-xl">
+                    <h3 class="flex items-center text-xl font-bold text-[#ff5722] mb-4">
+                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14L5.84 10.578a12.083 12.083 0 01-.665 6.479A11.952 11.952 0 0012 20.055z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14v4.055a11.952 11.952 0 00-.665 6.479A12.083 12.083 0 0112 14z"></path></svg>
+                        Pendidikan
+                    </h3>
+
+                    <ul class="space-y-6 text-gray-300">
+                        <li class="border-l-4 border-[#ff5722] pl-4">
+                            <p class="text-lg font-semibold text-white">Universitas Indraprasta PGRI</p>
+                            <p class="text-base">Teknik Informatika | 2024 - Sekarang</p>
+                            <p class="text-sm italic text-gray-400 mt-1">Fokus pada pengembangan aplikasi, struktur data, dan pengenalan jaringan komputer. Mencakup dasar-dasar coding dan algoritma.</p>
+                        </li>
+                        <li class="border-l-4 border-[#ff5722] pl-4">
+                            <p class="text-lg font-semibold text-white">SMK Citra Negara</p>
+                            <p class="text-base">Teknik Komputer dan Jaringan | 2022 - 2024</p>
+                            <p class="text-sm italic text-gray-400 mt-1">Mendalami konfigurasi jaringan, instalasi sistem operasi, dan pemeliharaan perangkat keras. Lulus dengan kompetensi di bidang IT Support.</p>
+                        </li>
+                    </ul>
                 </div>
-                <div class="skill-card">
-                    <div class="skill-name">CSS3</div>
-                    <p>Advanced Styling & Animations</p>
-                </div>
-                <div class="skill-card">
-                    <div class="skill-name">AI Integration</div>
-                    <p>AI-Augmented Development Tools</p>
+
+                <!-- EXPERIENCE CARD -->
+                <div class="card-shadow p-6 bg-[#2c2c54] border border-[#ff5722]/50 rounded-xl">
+                    <h3 class="flex items-center text-xl font-bold text-[#ff5722] mb-4">
+                        <svg class="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.565 23.565 0 0112 15c-3.15 0-6.04-.63-8.255-1.745M19 12h-4.5M10.5 12V7M6 12H4M2 12h2M17.5 10.5v3M12 10.5v3M6 10.5v3M22 12h-2"></path></svg>
+                        Pengalaman Kerja
+                    </h3>
+
+                    <ul class="space-y-6 text-gray-300">
+                        <li class="border-l-4 border-gray-500 pl-4">
+                            <p class="text-lg font-semibold text-white">Int Illustrator</p>
+                            <p class="text-base">Freelance (2023 - 2024)</p>
+                            <p class="text-sm italic text-gray-400 mt-1">Mengembangkan kemampuan ilustrasi digital dan desain visual, serta mengelola proyek secara mandiri dari konsep hingga finalisasi. Meningkatkan keterampilan komunikasi klien.</p>
+                        </li>
+                        <li class="border-l-4 border-gray-500 pl-4">
+                            <p class="text-lg font-semibold text-white">Kharisma Apparel</p>
+                            <p class="text-base">Editing dan Desain (2020 - 2021)</p>
+                            <p class="text-sm italic text-gray-400 mt-1">Bertanggung jawab atas editing foto produk dan pembuatan materi desain promosi, memastikan kesesuaian visual dengan identitas merek dan batas waktu.</p>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Education Section -->
-        <section class="section">
-            <h2 class="section-title">Education</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-title">Teknik Informatika</div>
-                    <div class="timeline-company">University Of Indraprasta PGRI</div>
-                    <div class="timeline-date">2024 - In Progress</div>
-                    <p>Currently pursuing Computer Science degree with focus on modern web technologies.</p>
-                </div>
-                <div class="timeline-item">
-                    <div class="timeline-title">Computer and Network Engineering</div>
-                    <div class="timeline-company">Citra Negara Vocational High School</div>
-                    <div class="timeline-date">2022 - 2024</div>
-                    <p>Specialized in computer systems and network infrastructure.</p>
-                </div>
+    <!-- MY WORK SECTION (Web Development/Coding) -->
+    <section id="work" class="py-20 bg-transparent border-t border-[#2c2c54]">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="section-title text-3xl sm:text-4xl font-extrabold text-white mx-auto">Proyek Pengembangan & Coding</h2>
+                <p class="mt-4 text-xl text-gray-400">Contoh proyek menggunakan HTML, CSS, dan Python.</p>
             </div>
-        </section>
 
-        <!-- Experience Section -->
-        <section class="section">
-            <h2 class="section-title">Work Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-title">Int Illustrator</div>
-                    <div class="timeline-company">Freelance</div>
-                    <div class="timeline-date">2023 - 2024</div>
-                    <p>Created digital illustrations and visual content for various clients.</p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                <!-- Work Item 1: HTML/CSS (Front-end Design) -->
+                <div class="card-shadow bg-[#2c2c54] rounded-xl overflow-hidden group">
+                    <div class="w-full h-48 bg-gradient-to-br from-red-500 to-orange-500 flex items-center justify-center">
+                        <span class="text-6xl font-bold text-white opacity-80">HTML</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-xl font-bold text-white">Website Landing Page Modern</h4>
+                        <p class="text-gray-400 mt-2">Mendesain dan mengimplementasikan antarmuka pengguna responsif menggunakan **HTML5** dan **CSS** (Tailwind).</p>
+                        <span class="inline-block mt-3 px-3 py-1 text-xs font-semibold text-orange-200 bg-orange-700 rounded-full">Web Design</span>
+                    </div>
                 </div>
-                <div class="timeline-item">
-                    <div class="timeline-title">Editing and Design</div>
-                    <div class="timeline-company">Kharisma Apparel</div>
-                    <div class="timeline-date">2020 - 2021</div>
-                    <p>Handled visual design and content editing for apparel brand.</p>
+
+                <!-- Work Item 2: Python (Data/Backend Logic) -->
+                <div class="card-shadow bg-[#2c2c54] rounded-xl overflow-hidden group">
+                    <div class="w-full h-48 bg-gradient-to-br from-blue-600 to-indigo-600 flex items-center justify-center">
+                        <span class="text-6xl font-bold text-white opacity-80">PYTHON</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-xl font-bold text-white">Script Automasi Sederhana</h4>
+                        <p class="text-gray-400 mt-2">Mengembangkan skrip Python untuk otomatisasi tugas, seperti pengolahan data atau *web scraping* dasar.</p>
+                        <span class="inline-block mt-3 px-3 py-1 text-xs font-semibold text-blue-200 bg-blue-700 rounded-full">Logic & Scripting</span>
+                    </div>
                 </div>
+
+                <!-- Work Item 3: Combined Project -->
+                <div class="card-shadow bg-[#2c2c54] rounded-xl overflow-hidden group">
+                    <div class="w-full h-48 bg-gradient-to-br from-green-600 to-teal-600 flex items-center justify-center">
+                        <span class="text-6xl font-bold text-white opacity-80">WEB DEV</span>
+                    </div>
+                    <div class="p-5">
+                        <h4 class="text-xl font-bold text-white">Aplikasi Kalkulator Interaktif</h4>
+                        <p class="text-gray-400 mt-2">Menggabungkan **HTML** dan **JavaScript** untuk fungsi interaktif, di-styling dengan **CSS** modern.</p>
+                        <span class="inline-block mt-3 px-3 py-1 text-xs font-semibold text-green-200 bg-green-700 rounded-full">Front-end App</span>
+                    </div>
+                </div>
+
             </div>
-        </section>
 
+            <div class="text-center mt-12">
+                <p class="text-lg text-gray-400">Semua proyek menunjukkan kemampuan dasar saya dalam pengembangan dan logika pemrograman.</p>
+            </div>
+        </div>
+    </section>
 
-
-        <!-- Contact Section -->
-        <section class="section">
-            <h2 class="section-title">Connect</h2>
-            <div class="contact-info">
-                <p class="neon-text">Ready to collaborate on your next cybernetic project?</p>
-                <p>Let's build the future together with AI-augmented development.</p>
-                <p style="color: #ff00ff; font-size: 1.1rem; margin-top: 2rem;">
-                    [TRANSMISSION_READY] • [NEURAL_LINK_ACTIVE] • [SYSTEM_ONLINE]
+    <!-- FOOTER -->
+    <footer class="bg-[#1a1a2e] border-t border-[#2c2c54] text-white py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p>&copy; 2025 Muhamad Daffa Ramadhan. Dark Mode Activated.</p>
+            <div class="mt-2 flex justify-center items-center space-x-4">
+                <!-- Memperbarui informasi kontak di Footer -->
+                <p class="text-sm text-gray-500">
+                    <a href="https://wa.me/6285893957454" class="hover:text-[#ff5722] transition duration-150">WA: 0858-9395-7454</a> 
+                    | Email: daffarmdhnn19@gmail.com
                 </p>
+                <div class="text-lg flex space-x-4">
+                    <!-- Tautan WhatsApp di Footer -->
+                    <a href="https://wa.me/6285893957454" target="_blank" rel="noopener noreferrer" 
+                       class="text-gray-400 hover:text-green-500 transition duration-300 transform hover:scale-110" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                     <!-- Tautan Instagram di Footer -->
+                    <a href="https://www.instagram.com/fnxses" target="_blank" rel="noopener noreferrer" 
+                       class="text-gray-400 hover:text-[#ff5722] transition duration-300 transform hover:scale-110" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
             </div>
-        </section>
+        </div>
+    </footer>
+
+    <!-- MODAL / Message Box (For copy email function) -->
+    <div id="messageBox" class="fixed bottom-5 right-5 p-4 bg-[#ff5722] text-white rounded-lg shadow-xl hidden transition-opacity duration-300" role="alert">
+        Email berhasil disalin ke clipboard!
     </div>
 
     <script>
-        // Add some interactive cyberpunk effects
-        document.addEventListener('DOMContentLoaded', function() {
-            // Random glitch effect on skills
-            const skillCards = document.querySelectorAll('.skill-card');
-            
-            skillCards.forEach(card => {
-                card.addEventListener('mouseenter', function() {
-                    this.style.animation = 'glitch 0.3s ease-in-out';
-                    setTimeout(() => {
-                        this.style.animation = '';
-                    }, 300);
-                });
-            });
+        // Data yang seharusnya ada (Isi manual dengan data Anda)
+        const userEmail = "daffarmdhnn19@gmail.com"; // Email asli Anda
+        const userPhone = "0858-9395-7454"; // Nomor telepon asli Anda
 
-            // Typing effect for the main title
-            const glitchElement = document.querySelector('.glitch');
-            const originalText = glitchElement.textContent;
-            
-            function randomGlitch() {
-                if (Math.random() < 0.1) { // 10% chance
-                    const chars = '!@#$%^&*()_+-=[]{}|;:,.<>?';
-                    let glitchedText = '';
-                    
-                    for (let i = 0; i < originalText.length; i++) {
-                        if (Math.random() < 0.1) {
-                            glitchedText += chars[Math.floor(Math.random() * chars.length)];
-                        } else {
-                            glitchedText += originalText[i];
-                        }
-                    }
-                    
-                    glitchElement.textContent = glitchedText;
-                    glitchElement.setAttribute('data-text', glitchedText);
-                    
-                    setTimeout(() => {
-                        glitchElement.textContent = originalText;
-                        glitchElement.setAttribute('data-text', originalText);
-                    }, 100);
-                }
-            }
+        /**
+         * Fungsi untuk menyalin email ke clipboard dan menampilkan pesan notifikasi.
+         */
+        function copyEmail() {
+            // Membuat elemen input sementara
+            const tempInput = document.createElement('input');
+            tempInput.value = userEmail;
+            document.body.appendChild(tempInput);
 
-            // Random glitch every 3-8 seconds
-            setInterval(randomGlitch, Math.random() * 5000 + 3000);
-        });
+            // Menyalin teks
+            tempInput.select();
+            document.execCommand('copy');
+
+            // Menghapus elemen input sementara
+            document.body.removeChild(tempInput);
+
+            // Menampilkan notifikasi
+            const msgBox = document.getElementById('messageBox');
+            msgBox.classList.remove('hidden');
+            msgBox.classList.add('opacity-100');
+
+            // Menyembunyikan notifikasi setelah 3 detik
+            setTimeout(() => {
+                msgBox.classList.remove('opacity-100');
+                msgBox.classList.add('hidden');
+            }, 3000);
+        }
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'98e650ce579cbd94',t:'MTc2MDQzNjkyOC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
+
